@@ -2,8 +2,14 @@ var AppView = Backbone.View.extend({
 
   el: '#app',
 
+
   initialize: function () {
     this.videos = new Videos();
+    this.videoPlayer = new VideoPlayerView();
+    this.videoList = new VideoListView();
+    this.videoListEntryView = new VideoListEntryView();
+    this.search = new SearchView();
+    this.render();
   },
 
 
@@ -15,3 +21,4 @@ var AppView = Backbone.View.extend({
   template: templateURL('src/templates/app.html')
 
 });
+
