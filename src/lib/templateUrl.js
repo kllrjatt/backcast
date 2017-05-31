@@ -4,11 +4,11 @@
 // Dynamically load HTML template files into the browser.
 // This is a very simple loader, in some ways, similar to webpack
 
-(function() {
+(function () {
 
   var promises = [];
 
-  window.templateURL = function(src) {
+  window.templateURL = function (src) {
     var template;
 
     // create a promise
@@ -24,7 +24,7 @@
       defer.resolve(data);
     });
 
-    return function() {
+    return function () {
       if (!template) {
         console.error(`Template '${src}' failed to load`);
         return;
@@ -33,7 +33,7 @@
     };
   };
 
-  window.backboneReady = function(callback) {
+  window.backboneReady = function (callback) {
     // wait for the dom ready event to fire
     // then wait for all the templates to load
     $(document).ready(() => $.when(...promises).then(callback));
