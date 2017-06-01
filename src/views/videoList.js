@@ -1,5 +1,9 @@
 var VideoListView = Backbone.View.extend({
   initialize: function () {
+    this.collection.models.forEach(function (element) {
+      new VideoListEntryView({ model: element });
+
+    }),
     this.render();
   },
 
